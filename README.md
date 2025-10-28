@@ -1,14 +1,12 @@
 ﻿# WHU-5-Stage-PipelineCPU
 
-# <font color='#f35336'>**如果你真的希望用这个项目验收，请确保你理解了Arielle的代码，不要让老师发现Arielle的这个repo喵！**</font>
-
 如果你觉得这个项目对你有帮助的话给Arielle点个star⭐谢谢喵！
 
 ## 这是什么？
 
 这是2025年武汉大学计算机学院，计算机类，计算机科学与技术专业方向，本科二年级第三学期的"计算机系统综合设计A/B"课程作业。该作业是一个经典的五级流水线架构CPU，实现RISC-V 32I指令集。
 
-项目编写自2025年6月28日夜晚开始，到2025年7月4日中午结束，耗时约5.5天（包含Arielle的摸鱼时间喵）。
+项目编写自2025年6月28日夜晚开始，到2025年7月4日中午结束，耗时约5.5天。
 
 ## 如何使用？
 
@@ -49,22 +47,22 @@ MyPipelineCPU/
 ├── Nexys4DDR_CPU.xdc             # FPGA约束文件
 └── README.md                     # 项目说明文档
 ```
-要将这个项目描述的CPU在您的电脑上运行起来，您可以直接在Release中下载已经编译好的bit文件，然后烧录到您的FPGA开发板上喵。
+要将这个项目描述的CPU在您的电脑上运行起来，您可以直接在Release中下载已经编译好的bit文件，然后烧录到您的FPGA开发板上。
 
-如果您希望在您的电脑上从头运行这个项目，您需要执行以下步骤喵：
+如果您希望在您的电脑上从头运行这个项目，您需要执行以下步骤：
 
-1. 将仓库克隆到本地喵：
+1. 将仓库克隆到本地：
   ```bash
   git clone https://github.com/CelestialDesolation7/WHU-5-StagePipelineCPU.git
   cd WHU-5-StagePipelineCPU
   ```
 
-2. 使用Vivado新建一个项目喵：
+2. 使用Vivado新建一个项目：
 	- 打开Vivado，选择"Create Project"
 	- 项目名称：`MyPipelineCPU`
 	- 项目类型：选择"RTL Project"
 	- 目标器件：选择`xc7a100tcsg324-1`（Nexys4 DDR）
-3. 将源代码文件和仿真文件分别添加到项目喵：
+3. 将源代码文件和仿真文件分别添加到项目：
 	- 在Vivado中，右键点击"Sources"窗口
 	- 选择"Add Sources" → "Add or create design sources"
 	- 添加以下文件：
@@ -85,15 +83,15 @@ MyPipelineCPU/
 		- 选择"Add Sources" → "Add or create constraints"
 		- 添加`Nexys4DDR_CPU.xdc`
 	- 创建ROM IP核
-	  - 此项目中ROM IP核名为dist_mem_gen_0，如果你要改名，请修改sccomp中的实例化喵。
+	  - 此项目中ROM IP核名为dist_mem_gen_0，如果你要改名，请修改sccomp中的实例化。
 	- 添加测试文件（可选）
 		- 右键点击"Sources"窗口
 		- 选择"Add Sources" → "Add or create simulation sources"
 		- 添加`Test/sccomp_rom_testbench.v`
 		- 右键点击sccomp_rom_testbench.v，选择"Set as Top"
 		- 点击左侧导航栏中的"Run Simulation" → "Run Behavioral Simulation"
-		- 如果一切顺利，您应该会看到仿真结果喵。
-4. 生成位流并下板运行喵：
+		- 如果一切顺利，您应该会看到仿真结果。
+4. 生成位流并下板运行：
 	- 点击"Run Synthesis"
 	- 综合完成后，点击"Run Implementation"
 	- 实现完成后，点击"Generate Bitstream"
@@ -103,7 +101,7 @@ MyPipelineCPU/
 	- 右键点击FPGA设备，选择"Program Device"
 	- 选择生成的.bit文件，点击"Program"
 
-然后无论你是否希望用这个项目去验收，阅读[验收教程](https://github.com/CelestialDesolation7/WHU-5-StagePipelineCPU/blob/main/Docs/%E9%AA%8C%E6%94%B6%E6%95%99%E7%A8%8Bby%20Arielle.md)都能帮助您理解喵。
+然后无论您是否希望用这个项目去验收，阅读[验收教程](https://github.com/CelestialDesolation7/WHU-5-StagePipelineCPU/blob/main/Docs/%E9%AA%8C%E6%94%B6%E6%95%99%E7%A8%8Bby%20Arielle.md)都能帮助您理解。
 
 ## 技术架构摘要
 
@@ -147,11 +145,11 @@ MyPipelineCPU/
 
 ## 32位地址空间内存实现指南
 
-⚠警告：此项目默认使用dm.v作为内存，仅支持7位字地址，即9位字节地址，合计512Byte喵⚠
+⚠警告：此项目默认使用dm.v作为内存，仅支持7位字地址，即9位字节地址，合计512Byte⚠
 
-如果你的测试程序需要访问32位地址空间，请看本文最后的教程喵
+如果你的测试程序需要访问32位地址空间，请看本文最后的教程
 
-（Arielle的测试程序没有用到这么大的地址喵）
+（Arielle的测试程序没有用到这么大的地址）
 
 在FPGA中实现32位地址空间（4GB）的内存时，不能简单地在Verilog中分配如此大量的寄存器，因为这会消耗巨大的硬件资源。
 
