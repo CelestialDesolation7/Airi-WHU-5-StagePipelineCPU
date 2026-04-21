@@ -1,6 +1,6 @@
 ﻿# Airi-WHU-5-Stage-PipelineCPU
 
-如果你觉得这个项目对你有帮助的话给Arielle点个star⭐谢谢喵！
+如果你觉得这个项目对你有帮助的话给Airi点个star⭐谢谢喵！
 
 ## 这是什么？
 
